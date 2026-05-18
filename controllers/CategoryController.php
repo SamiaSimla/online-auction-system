@@ -1,9 +1,9 @@
 <?php
 
-require_once "../config/database.php";
+require_once "../config/db.php";
 require_once "../models/Category.php";
 
-$db = (new Database())->connect();
+$db = (new database())->connect();
 
 $category = new Category($db);
 

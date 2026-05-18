@@ -5,7 +5,7 @@ session_start();
 $_SESSION['user_id'] = 1;
 $_SESSION['seller_verified'] = 1;
 
-require_once "../config/database.php";
+require_once "../config/db.php";
 require_once "../models/Listing.php";
 
 $db = (new Database())->connect();
