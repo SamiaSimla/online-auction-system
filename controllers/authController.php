@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once(__DIR__.'/../models/userModel.php');
 require_once(__DIR__.'/../config/functions.php');
 
@@ -21,6 +22,7 @@ if(isset($_POST['register'])){
     if(count($errors) == 0){
         if(registerUser($name, $email, $phone, $bio, $password)){
             header('Location: ../views/login.php?registered=1');
+            exit();
         }else{
             $errors['general'] = 'Registration failed';
         }
@@ -44,11 +46,15 @@ if(isset($_POST['login'])){
 
             if($user['role'] == 'admin'){
                 header('Location: ../views/admin_dashboard.php');
+                exit();
             }else{
                 header('Location: ../views/home.php');
+                exit();
             }
         }else{
-            $errors['general'] = 'Invalid email or password';
+            $_SESSION['login_error']='invalid email or password';
+            header('location: ../views/login.php');
+            exit();
         }
     }
 }
@@ -56,5 +62,6 @@ if(isset($_POST['login'])){
 if(isset($_GET['logout'])){
     session_destroy();
     header('Location: ../views/login.php');
+    exit();
 }
 ?>

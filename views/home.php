@@ -1,17 +1,19 @@
-<?php
-require_once(__DIR__.'/../config/functions.php');
-requireLogin();
-include('header.php');
+<?php 
+    require_once(__DIR__.'/../config/functions.php'); 
+    require_once(__DIR__.'/../models/catagoryModel.php'); 
+    include('header.php');
+    $cats=getAllCategories();  
 ?>
- 
-<h2>Home</h2>
- 
-<p>Welcome to Online Auction System.</p>
- 
-<?php if(isset($_SESSION['seller_verified']) && $_SESSION['seller_verified'] == 1){ ?>
-    <p class="success">You are a verified seller.</p>
-<?php }else{ ?>
-    <p>You are registered as a buyer.</p>
-<?php } ?>
- 
+<h2>Active Auctions</h2>
+<div class="filters">
+    <select id="categoryFilter">
+        <option value="0">All Categories</option>
+        <?php while($cat=mysqli_fetch_assoc($cats)){ ?>
+            <option value="<?php echo $cat['id']; ?>"><?php echo htmlspecialchars($cat['name']); ?></option>
+        <?php } ?>
+    </select>
+    <input type="text" id="searchBox" placeholder="Search auction title">
+</div>
+<div id="listingCards" class="cards"></div>
+<script src="../public/js/browse.js"></script>
 <?php include('footer.php'); ?>

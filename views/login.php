@@ -4,6 +4,17 @@ include('header.php');
 ?>
  
 <h2>Login</h2>
+ <?php
+
+if(isset($_SESSION['login_error'])){
+
+    echo '<p class="error">'.htmlspecialchars($_SESSION['login_error']).'</p>';
+
+    unset($_SESSION['login_error']);
+
+}
+
+?>
  
 <form method="post" action="../controllers/authController.php">
  

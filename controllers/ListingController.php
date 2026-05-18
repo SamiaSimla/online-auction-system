@@ -1,12 +1,12 @@
 <?php
-
+require_once (__DIR__."/../config/db.php");
+require_once (__DIR__."/../models/Listing.php");
 session_start();
 
 $_SESSION['user_id'] = 1;
 $_SESSION['seller_verified'] = 1;
 
-require_once "../config/database.php";
-require_once "../models/Listing.php";
+
 
 $db = (new Database())->connect();
 
@@ -68,7 +68,7 @@ if(isset($_POST['create_listing'])){
         'starting_price' => $starting_price,
         'reserve_price' => $reserve_price,
         'current_bid' => $starting_price,
-        'image_path' => $file_name,
+        'image_path' => 'public/uploads/listings/'.$file_name,
         'end_datetime' => $end_datetime
     ];
 
