@@ -1,4 +1,6 @@
 <?php
-    header('location: views/home.php');
-    exit();
+
+header("Location: views/listings/dashboard.php");
+exit();
+
 ?>

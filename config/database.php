@@ -1,12 +1,30 @@
 <?php
-$host = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = 'online_auction_system';
+class database {
 
-$conn = mysqli_connect($host, $dbuser, $dbpass, $dbname);
+    private $host = "localhost";
+    private $dbname = "online_auction_system";
+    private $username = "root";
+    private $password = "";
 
-if(!$conn){
-    die('Database connection failed: '.mysqli_connect_error());
+    public $conn;
+
+    public function connect(){
+        $this->conn = null;
+
+        try {
+            $this->conn = new PDO(
+                "mysql:host=".$this->host.";dbname=".$this->dbname,
+                $this->username,
+                $this->password
+            );
+
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch(PDOException $e) {
+            die("database Connection Failed : ".$e->getMessage());
+        }
+
+        return $this->conn;
+    }
 }
 ?>
