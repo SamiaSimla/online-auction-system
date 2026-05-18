@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/../config/db.php');
+require_once(__DIR__.'/../config/database.php');
 
 function registerUser($name, $email, $phone, $bio, $password){
     global $conn;
