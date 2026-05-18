@@ -7,7 +7,7 @@ header("Content-Type: application/json");
 require_once "../../config/database.php";
 require_once "../../models/Listing.php";
 
-$db = (new Database())->connect();
+$db = (new database())->connect();
 
 $listing = new Listing($db);
 
