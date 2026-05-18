@@ -1,11 +1,11 @@
 <?php
 
+require_once (__DIR__."/../config/db.php");
+require_once (__DIR__."/../models/Listing.php");
 session_start();
 
 header("Content-Type: application/json");
 
-require_once "../../config/database.php";
-require_once "../../models/Listing.php";
 
 $db = (new database())->connect();
 

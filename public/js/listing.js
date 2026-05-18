@@ -4,7 +4,7 @@ function cancelListing(id){
 
     formData.append("listing_id", id);
 
-    fetch("../../api/listings/cancel.php", {
+    fetch("../../controllers/cancel.php", {
 
         method: "POST",
         body: formData

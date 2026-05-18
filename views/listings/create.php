@@ -1,11 +1,11 @@
 <?php
-
+require_once (__DIR__."/../../config/db.php");
 session_start();
 
 $_SESSION['user_id'] = 1;
 $_SESSION['seller_verified'] = 1;
 
-require_once "../../config/database.php";
+
 
 $db = (new Database())->connect();
 
