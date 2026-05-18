@@ -27,5 +27,6 @@
     <span class="error"><?php echo htmlspecialchars($errors['password'] ?? ''); ?></span>
 
    <button type="submit" name="register" value="buyer">Register as Buyer</button>
+   Have and account?<a href="login.php">Login</a>
 </form>
 <?php include('footer.php'); ?>
