@@ -7,7 +7,6 @@ $_SESSION['user_id'] = 1;
 $_SESSION['seller_verified'] = 1;
 
 
-
 $db = (new Database())->connect();
 
 $listing = new Listing($db);

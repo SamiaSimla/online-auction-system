@@ -3,7 +3,7 @@
 require_once (__DIR__."/../config/db.php");
 require_once (__DIR__."/../models/Category.php");
 
-$db = (new Database())->connect();
+$db = (new database())->connect();
 
 $category = new Category($db);
 
